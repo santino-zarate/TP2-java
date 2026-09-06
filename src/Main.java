@@ -30,7 +30,11 @@ public class Main extends JFrame {
         txtPrecio = new JTextField();
         txtStock = new JTextField();
         btnRegistrar = new JButton("Registrar"); // Botón para guardar el producto.
+        btnRegistrar.setBackground(new Color(76, 175, 80)); // Modificacion 5: Cambio de color del boton registrar
+        btnRegistrar.setForeground(Color.WHITE); // Modificacion 5: Cambio de color del texto registrar
         btnLimpiar = new JButton("Limpiar"); // Modificacion 3: Boton para limpiar 
+        btnLimpiar.setBackground(new Color(76, 175, 80)); // Modificacion 5: Cambio de color del boton limpiar
+        btnLimpiar.setForeground(Color.WHITE); // Modificacion 5: Cambio de color del texto limpiar
         txtResultado = new JTextArea(); // Área para mostrar resultados.
         txtResultado.setEditable(false); // Evita que el usuario modifique el resultado manualmente.
 
