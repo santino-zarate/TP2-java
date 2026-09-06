@@ -71,9 +71,14 @@ public class Main extends JFrame {
 
              Producto producto = new Producto(nombre, precio, stock);
              txtResultado.setText(producto.mostrarInformacion());
-        }  
+        }
+        // Modificacion 3: Excepcion de valores numericos en stock y precio 
         catch (NumberFormatException ex) {
-        JOptionPane.showMessageDialog(this, "Precio y Stock deben ser valores numéricos.", "Error de formato", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Precio y Stock deben ser valores numéricos.", "Error de formato", JOptionPane.ERROR_MESSAGE);  
+        } 
+        // Modificacion 4: Excepcion de valores negativos en stock y precio
+        catch (IllegalArgumentException ex) {
+         JOptionPane.showMessageDialog(this, ex.getMessage(), "Datos inválidos", JOptionPane.ERROR_MESSAGE);
         }
     }
     // Modificacion 3: Metodo para limpiar los campos de texto y el area de resultado

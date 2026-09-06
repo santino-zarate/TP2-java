@@ -8,6 +8,15 @@ public class Producto {
 
     // Constructor: inicializa los valores del producto cuando se crea un objeto.
     public Producto(String nombre, double precio, int stock) {
+        
+        // Modificacion 4: Evitar que el precio y el stock sean negativos
+        if (precio < 0) {
+             throw new IllegalArgumentException("El precio no puede ser negativo.");
+        }
+        if (stock < 0) {
+             throw new IllegalArgumentException("El stock no puede ser negativo.");
+        }
+
         this.nombre = nombre; // Asigna el nombre recibido al atributo nombre.
         this.precio = precio; // Asigna el precio recibido al atributo precio.
         this.stock = stock; // Asigna el stock recibido al atributo stock.
