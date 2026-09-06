@@ -52,6 +52,13 @@ public class Main extends JFrame {
     // Método que toma los datos ingresados y crea un objeto Producto.
     private void registrarProducto() {
         String nombre = txtNombre.getText(); // Obtiene el nombre escrito por el usuario.
+
+        // Modificacion 1: Validacion de que los campos no este vacios
+        if (nombre.isEmpty() || txtPrecio.getText().trim().isEmpty() || txtStock.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.", "Datos incompletos", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
         double precio = Double.parseDouble(txtPrecio.getText()); // Convierte el texto del precio a double.
         int stock = Integer.parseInt(txtStock.getText()); // Convierte el texto del stock a int.
 
