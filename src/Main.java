@@ -8,6 +8,8 @@ public class Main extends JFrame {
     private JTextField txtNombre, txtPrecio, txtStock;
     // Botón que dispara la acción de registrar el producto.
     private JButton btnRegistrar;
+    // Modificacion 3: Se agrega un boton para limpiar los campos de texto.
+    private JButton btnLimpiar;
     // Área de texto donde se muestra la información del producto.
     private JTextArea txtResultado;
 
@@ -28,6 +30,7 @@ public class Main extends JFrame {
         txtPrecio = new JTextField();
         txtStock = new JTextField();
         btnRegistrar = new JButton("Registrar"); // Botón para guardar el producto.
+        btnLimpiar = new JButton("Limpiar"); // Modificacion 3: Boton para limpiar 
         txtResultado = new JTextArea(); // Área para mostrar resultados.
         txtResultado.setEditable(false); // Evita que el usuario modifique el resultado manualmente.
 
@@ -39,13 +42,15 @@ public class Main extends JFrame {
         add(txtPrecio); // Agrega el campo de texto del precio.
         add(lblStock); // Agrega la etiqueta de stock.
         add(txtStock); // Agrega el campo de texto del stock.
-        add(new JLabel("")); // Agrega un espacio vacío para mantener el formato.
+        // Modificacion 3: Se agrego el boton de limpiar y usar el espacio de al lado de boton registrar
         add(btnRegistrar); // Agrega el botón registrar.
+        add(btnLimpiar); // Agrega el botón limpiar
         add(new JLabel("Resultado:")); // Etiqueta para mostrar el resultado.
         add(new JScrollPane(txtResultado)); // Agrega un scroll para ver el contenido del texto.
 
         // Cuando se presiona el botón, ejecuta el método registrarProducto.
         btnRegistrar.addActionListener(e -> registrarProducto());
+        btnLimpiar.addActionListener(e -> limpiarFormulario());
         setVisible(true); // Hace visible la ventana.
     }
 
@@ -71,7 +76,14 @@ public class Main extends JFrame {
         JOptionPane.showMessageDialog(this, "Precio y Stock deben ser valores numéricos.", "Error de formato", JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    // Modificacion 3: Metodo para limpiar los campos de texto y el area de resultado
+    private void limpiarFormulario() {
+        txtNombre.setText("");
+        txtPrecio.setText("");
+        txtStock.setText("");
+        txtResultado.setText("");
+        txtNombre.requestFocus();
+}
     // Método principal que inicia la aplicación.
     public static void main(String[] args) {
         new Main(); // Crea una instancia de la ventana principal.
