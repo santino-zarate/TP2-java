@@ -59,11 +59,17 @@ public class Main extends JFrame {
             return;
         }
 
-        double precio = Double.parseDouble(txtPrecio.getText()); // Convierte el texto del precio a double.
-        int stock = Integer.parseInt(txtStock.getText()); // Convierte el texto del stock a int.
+        // Modificacion 2: Validacion de que el precio y stock sean numeros
+        try {
+             double precio = Double.parseDouble(txtPrecio.getText());
+             int stock = Integer.parseInt(txtStock.getText());
 
-        Producto producto = new Producto(nombre, precio, stock); // Crea un producto con los datos ingresados.
-        txtResultado.setText(producto.mostrarInformacion()); // Muestra la información del producto en el área de texto.
+             Producto producto = new Producto(nombre, precio, stock);
+             txtResultado.setText(producto.mostrarInformacion());
+        }  
+        catch (NumberFormatException ex) {
+        JOptionPane.showMessageDialog(this, "Precio y Stock deben ser valores numéricos.", "Error de formato", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     // Método principal que inicia la aplicación.
